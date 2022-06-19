@@ -1,12 +1,13 @@
 import * as React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator} from '@react-navigation/native-stack';
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import HomeScreen from './components/screens/Home';
 import Map from './components/screens/Map';
-import { store } from './components/reduxConfig.js/Store';
-import { Provider } from 'react-redux';
-const Stack = createNativeStackNavigator();
-
+import {store} from './components/reduxConfig.js/Store';
+import {Provider} from 'react-redux';
+import {LogBox} from 'react-native';
+const Stack = createNativeStackNavigator ();
+LogBox.ignoreAllLogs ();
 const MyStack = () => {
   return (
     <NavigationContainer>
@@ -14,7 +15,7 @@ const MyStack = () => {
         <Stack.Screen
           name="Home"
           component={HomeScreen}
-          options={{ title: 'Welcome' }}
+          options={{title: 'Welcome'}}
         />
         <Stack.Screen name="Map" component={Map} />
       </Stack.Navigator>
@@ -23,9 +24,9 @@ const MyStack = () => {
 };
 const App = () => {
   return (
-   <Provider store={store}>
-    <MyStack/>
-   </Provider>
+    <Provider store={store}>
+      <MyStack />
+    </Provider>
   );
 };
 
