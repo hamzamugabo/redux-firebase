@@ -72,6 +72,7 @@ const refresh=()=>{
         region={mapRegion}
         onUserLocationChange={event => console.log(event.nativeEvent)}
         onPress={reduxFirebase}
+        onMarkerPress={reduxFirebase}
         // onRegionChange={reduxFirebase}
         // showsUserLocation={true}
       >
