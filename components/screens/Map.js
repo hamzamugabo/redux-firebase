@@ -31,6 +31,8 @@ const reduxFirebase=()=>{
     try {
       dispatch (setLat (location.coords.latitude));
       dispatch (setLong (location.coords.longitude));
+      console.log('lat',location.coords.latitude)
+      console.log('long',location.coords.longitude)
       setmapRegion ({
         latitude: lat,
         longitude: long,
@@ -51,20 +53,33 @@ const reduxFirebase=()=>{
       .catch (err => console.log (err));
   }) ();
 }
+const refresh=()=>{
+  reduxFirebase();
+}
   useEffect (() => {
     console.log(mapRegion)
   reduxFirebase();
+  // refresh();
   }, []);
-
+  const _handleMapRegionChange = mapRegion => {
+    setmapRegion(mapRegion);
+  };
   return (
     <View style={styles.container}>
-
-      <MapView
+<View>
+<MapView
         style={{alignSelf: 'stretch', height: '100%'}}
         region={mapRegion}
+        onUserLocationChange={event => console.log(event.nativeEvent)}
+        onPress={reduxFirebase}
+        // onRegionChange={reduxFirebase}
+        // showsUserLocation={true}
       >
-        <Marker coordinate={mapRegion} title="Marker" />
+        <Marker coordinate={mapRegion} title={lat +'  '+ long} />
+
       </MapView>
+</View>
+     
     </View>
   );
 };

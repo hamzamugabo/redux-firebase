@@ -17,3 +17,28 @@ function userReducer (state = initialState, action) {
 }
 
 export default userReducer;
+
+// import { createSlice } from '@reduxjs/toolkit'
+
+// const initialState = {
+//   lat: 37.78825,
+//   long: -122.4324,
+// };
+
+// export const counterSlice = createSlice({
+//   name: 'counter',
+//   initialState,
+//   reducers: {
+//     setLat: (state) => {
+//       state.lat=0.3526443;
+//     },
+//     setLong: (state) => {
+//       state.long=32.5993598;
+//     }
+//   },
+// })
+
+// // Action creators are generated for each case reducer function
+// export const { setLat, setLong } = counterSlice.actions
+
+// export default counterSlice.reducer
